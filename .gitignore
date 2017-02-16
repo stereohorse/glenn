@@ -1,0 +1,14 @@
+.idea
+*.iml
+
+.classpath
+.project
+.settings
+*.xmi
+
+.gradle
+
+build
+/bin/
+
+glenn.db

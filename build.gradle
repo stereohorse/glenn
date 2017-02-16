@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-docker-plugin:3.0.5'
+    }
+}
+
+
+apply plugin: 'java'
+
+apply plugin: 'application'
+mainClassName = 'ru.stereohorse.glenn.Glenn'
+
+apply plugin: 'com.bmuschko.docker-java-application'
+docker {
+    javaApplication {
+        baseImage = 'openjdk:8-jre-alpine'
+        maintainer = 'Nguyen Viet [inbox@dev-forge.ru]'
+        tag = '0x06065a/glenn'
+    }
+}
+
+apply plugin: 'eclipse'
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.mapdb:mapdb:3.0.3'
+
+    compileOnly 'org.projectlombok:lombok:1.16.14'
+}
