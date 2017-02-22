@@ -13,6 +13,9 @@ apply plugin: 'java'
 
 apply plugin: 'application'
 mainClassName = 'ru.stereohorse.glenn.Glenn'
+run {
+    systemProperties System.properties
+}
 
 apply plugin: 'com.bmuschko.docker-java-application'
 docker {
@@ -23,8 +26,6 @@ docker {
     }
 }
 
-apply plugin: 'eclipse'
-
 
 repositories {
     jcenter()
@@ -33,5 +34,15 @@ repositories {
 dependencies {
     compile 'org.mapdb:mapdb:3.0.3'
 
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:converter-jackson:2.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+
+    compile 'org.slf4j:slf4j-api:1.7.23'
+    compile 'ch.qos.logback:logback-classic:1.2.1'
+    compile 'org.codehaus.groovy:groovy-all:2.4.8'
+
     compileOnly 'org.projectlombok:lombok:1.16.14'
+
+    testCompile 'junit:junit:4.12'
 }
